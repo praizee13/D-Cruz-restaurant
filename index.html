@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'Cruz Biryani Restaurant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Nav -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="images/D_Cruz_Logo.png" alt="D'Cruz Logo" class="nav-logo-img">
+    D'Cruz <span>Biryani</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Reserve a Table</button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" class="mob-link">Home</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="#menu" class="mob-link">Menu</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="#contact" class="mob-link">Contact</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="#contact" class="mob-link" style="color:var(--gold);font-size:1.4rem;letter-spacing:0.15em;font-family:'Montserrat',sans-serif;font-weight:500;text-transform:uppercase;">Reserve a Table</a>
+</div>
+
+<!-- Hero -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-image-overlay"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Est. 2015 &nbsp;·&nbsp; Authentic Biryani &nbsp;·&nbsp; Chennai</div>
+    <h1 class="hero-title">D'Cruz Biryani<br><em>Multi Cuisine Restaurant</em></h1>
+    <p class="hero-sub">Chennai's finest biryani — crafted with love, spice, and tradition</p>
+    <div class="hero-divider">
+      <span></span>
+      <i>✦</i>
+      <span></span>
+    </div>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Explore Our Menu</a>
+      <a href="#contact" class="btn-outline">Make a Reservation</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- About Strip -->
+<div class="about-strip reveal">
+  <div class="about-stat">
+    <div class="about-stat-num">🍛</div>
+    <div class="about-stat-label">Dine-In & Takeaway</div>
+  </div>
+  <div class="about-center">
+    <h2>A Legacy of<br><em>Spice & Soul</em></h2>
+    <p>At D'Cruz Biryani Restaurant, every plate is a celebration of authentic South Indian flavours — crafted with hand-picked spices, fresh ingredients, and a family recipe passed down through generations. From our legendary Prawn Thokku Biryani to the smoky Tandoori Chicken, every bite tells a story.</p>
+  </div>
+  <div class="about-stat">
+    <div class="about-stat-num">🕛</div>
+    <div class="about-stat-label">Open till 2AM / 4AM Weekends</div>
+  </div>
+</div>
+
+<!-- Features -->
+<div class="features">
+  <div class="feature-card reveal">
+    <div class="feature-icon">🌿</div>
+    <h3>Fresh Daily Ingredients</h3>
+    <p>We source only the freshest meats, vegetables and spices daily — so every plate you receive is bursting with authentic flavour.</p>
+  </div>
+  <div class="feature-card reveal">
+    <div class="feature-icon">🍗</div>
+    <h3>Authentic Recipes</h3>
+    <p>Our kitchen follows time-honoured recipes perfected over decades — from slow-dum biryani to crispy tandoor-fired specialties.</p>
+  </div>
+  <div class="feature-card reveal">
+    <div class="feature-icon">⚡</div>
+    <h3>Fast & Easy Ordering</h3>
+    <p>Order directly from our menu and pick up your food — hot, fresh and ready. No fuss, just great food at great value.</p>
+  </div>
+</div>
+
+<!-- Menu -->
+<section id="menu">
+  <div class="section-header">
+    <div class="section-tag">The Menu</div>
+    <h2>Order Your <em>Favourite</em></h2>
+    <p>From aromatic biryanis to sizzling tandoor specialties — explore our full menu and add to cart.</p>
+  </div>
+
+  <!-- Category Filters -->
+  <div class="cat-filters-wrap">
+    <div class="cat-filters" id="catFilters">
+      <button class="cat-btn active" data-cat="all">
+        <img class="cat-img" src="images/all.jfif" alt="All">
+        <span class="cat-label">All</span>
+      </button>
+      <button class="cat-btn" data-cat="rice">
+        <img class="cat-img" src="images/Rice.jfif" alt="Rice">
+        <span class="cat-label">Rice</span>
+      </button>
+      <button class="cat-btn" data-cat="biryani">
+        <img class="cat-img" src="images/Biryani.jfif" alt="Biryani">
+        <span class="cat-label">Biryani</span>
+      </button>
+      <button class="cat-btn" data-cat="bucket">
+        <img class="cat-img" src="images/bucket%20biriyani.jpg" alt="Bucket Biryani">
+        <span class="cat-label">Bucket Biryani</span>
+      </button>
+      <button class="cat-btn" data-cat="dosa">
+        <img class="cat-img" src="images/dosa.jfif" alt="Dosa">
+        <span class="cat-label">Dosa</span>
+      </button>
+      <button class="cat-btn" data-cat="grill">
+        <img class="cat-img" src="images/Grill.jpeg" alt="Grill">
+        <span class="cat-label">Grill</span>
+      </button>
+      <button class="cat-btn" data-cat="tandoori">
+        <img class="cat-img" src="images/Tandoori.jfif" alt="Tandoori">
+        <span class="cat-label">Tandoori</span>
+      </button>
+      <button class="cat-btn" data-cat="starters">
+        <img class="cat-img" src="images/Non%20veg%20starters.jfif" alt="Non-Veg Starters">
+        <span class="cat-label">Non-Veg Starters</span>
+      </button>
+      <button class="cat-btn" data-cat="vegstarters">
+        <img class="cat-img" src="images/Veg%20starters.jfif" alt="Veg Starters">
+        <span class="cat-label">Veg Starters</span>
+      </button>
+      <button class="cat-btn" data-cat="soups">
+        <img class="cat-img" src="images/Soup.jpg" alt="Soups">
+        <span class="cat-label">Soups</span>
+      </button>
+      <button class="cat-btn" data-cat="gravy">
+        <img class="cat-img" src="images/Gravy.jfif" alt="Gravy">
+        <span class="cat-label">Gravy</span>
+      </button>
+      <button class="cat-btn" data-cat="parotta">
+        <img class="cat-img" src="images/parotta.jpg" alt="Parotta">
+        <span class="cat-label">Parotta</span>
+      </button>
+    </div>
+    <!-- Premium scroll indicator — mobile only -->
+    <div class="cat-scrollbar-track">
+      <div class="cat-scrollbar-thumb" id="catScrollThumb"></div>
+    </div>
+  </div>
+
+  <!-- Menu Grid -->
+  <div class="menu-grid" id="menuGrid">
+
+    <!-- RICE -->
+    <div class="dish-card show" data-cat="rice" data-id="rice-001" data-name="Chicken Fried Rice" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/chicken%20Fried%20rice.jfif" alt="Chicken Fried Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Chicken Fried Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-002" data-name="Chicken Szechuan Rice" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/Shezwan%20Chicken%20Rice%20.jfif" alt="Chicken Szechuan Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Chicken Szechuan Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-003" data-name="Egg Fried Rice" data-price="179">
+      <div class="dish-img-wrap">
+        <img src="images/Vegetable%20Egg%20Fried%20Rice.jfif" alt="Egg Fried Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Egg Fried Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>179</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-004" data-name="Egg Szechuan Rice" data-price="179">
+      <div class="dish-img-wrap">
+        <img src="images/Schezwan%20Egg%20Fried%20Rice%20.jfif" alt="Egg Szechuan Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Egg Szechuan Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>179</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-007" data-name="Paneer Fried Rice" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/Paneer%20Fried%20Rice%20.jfif" alt="Paneer Fried Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Paneer Fried Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-007b" data-name="Paneer Szechuan Rice" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/Schezwan%20Panner%20Fried%20Rice.jfif" alt="Paneer Szechuan Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Paneer Szechuan Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-008" data-name="Steamed Rice" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Steamed%20rice.jfif" alt="Steamed Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Steamed Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-009" data-name="Vegetable Fried Rice" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/Vegetable%20Fried%20Rice.jfif" alt="Vegetable Fried Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Vegetable Fried Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-009b" data-name="Vegetable Szechuan Rice" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/Szechwan%20Fried%20Rice.jfif" alt="Vegetable Szechuan Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Vegetable Szechuan Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIRYANI -->
+    <div class="dish-card show" data-cat="biryani" data-id="bir-001" data-name="Chicken Biryani" data-price="229">
+      <div class="dish-img-wrap">
+        <img src="images/chicken%20biriyani.jpeg" alt="Chicken Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Chicken Biryani</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>229</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="biryani" data-id="bir-002" data-name="Chicken 65 Biryani" data-price="229">
+      <div class="dish-img-wrap">
+        <img src="images/Chicken%2065%20Biriyani.jfif" alt="Chicken 65 Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Chicken 65 Biryani</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>229</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="biryani" data-id="bir-003" data-name="Egg Biryani" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/Egg%20Biryani.jfif" alt="Egg Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Egg Biryani</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="biryani" data-id="bir-004" data-name="Kuska" data-price="179">
+      <div class="dish-img-wrap">
+        <img src="images/Kuska.jfif" alt="Kuska">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Kuska</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>179</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="biryani" data-id="bir-005" data-name="Prawn Thokku Biryani" data-price="329">
+      <div class="dish-img-wrap">
+        <img src="images/prawn%20thokku%20biriyani.jpeg" alt="Prawn Thokku Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Prawn Thokku Biryani</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>329</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="biryani" data-id="bir-006" data-name="Chicken Thokku Biryani" data-price="279">
+      <div class="dish-img-wrap">
+        <img src="images/Chicken%20thokku%20biriyani.jpeg" alt="Chicken Thokku Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Chicken Thokku Biryani</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>279</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUCKET BIRYANI -->
+    <div class="dish-card show" data-cat="bucket" data-id="bkt-001" data-name="Chicken Biryani (Serves 6-8)" data-price="1529">
+      <div class="dish-img-wrap">
+        <img src="images/Chicken%20bucket%20biryani.png" alt="Bucket Chicken Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Serves 6–8</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Bucket Biryani</div>
+        <div class="dish-name">Chicken Biryani (Serves 6–8)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>1,529</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="bucket" data-id="bkt-002" data-name="Egg Biryani (Serves 6-8)" data-price="1029">
+      <div class="dish-img-wrap">
+        <img src="images/Bucket%20Egg%20Biryani.jpg" alt="Bucket Egg Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Serves 6–8</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Bucket Biryani</div>
+        <div class="dish-name">Egg Biryani (Serves 6–8)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>1,029</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOSA -->
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-001" data-name="Plain Dosa" data-price="69">
+      <div class="dish-img-wrap">
+        <img src="images/Plain%20dosa.jfif" alt="Plain Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Plain Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>69</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-002" data-name="Egg Dosa" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Egg%20dosa.jfif" alt="Egg Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Egg Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-003" data-name="Ghee Dosa" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/Ghee%20dosa.jfif" alt="Ghee Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Ghee Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-004" data-name="Cheese Dosa" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/cheese%20dosa.jfif" alt="Cheese Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Cheese Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-005" data-name="Podi Dosa" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/podi%20dosa.jfif" alt="Podi Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Podi Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-006" data-name="Kal Dosa (2)" data-price="59">
+      <div class="dish-img-wrap">
+        <img src="images/Kal%20dosa.jfif" alt="Kal Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Kal Dosa (2)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>59</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-007" data-name="Chicken Thokku Dosa" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/chicken%20thokku%20dosa%20.jfif" alt="Chicken Thokku Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Chicken Thokku Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRILL -->
+    <!-- TANDOORI -->
+
+    <!-- NON-VEG STARTERS -->
+    <div class="dish-card show" data-cat="starters" data-id="sta-001" data-name="Chicken 65" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/Chicken%2065.jfif" alt="Chicken 65">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Chicken 65</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-002" data-name="Chilli Chicken" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/Chilly%20Chicken.jfif" alt="Chilli Chicken">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Chilli Chicken</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-006" data-name="Yellow Chicken Tikka" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/Yellow%20chicken%20tikka.jfif" alt="Yellow Chicken Tikka">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Yellow Chicken Tikka</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-008" data-name="Chilli Prawns" data-price="299">
+      <div class="dish-img-wrap">
+        <img src="images/chilli%20prawns.jpg" alt="Chilli Prawns">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Spicy</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Chilli Prawns</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>299</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-009" data-name="Tandoori Prawns" data-price="299">
+      <div class="dish-img-wrap">
+        <img src="images/tandoori%20prawns.jfif" alt="Tandoori Prawns">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tandoori Prawns</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>299</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-010" data-name="Pepper Prawns Roast" data-price="299">
+      <div class="dish-img-wrap">
+        <img src="images/pepper%20prawns%20roast.jfif" alt="Pepper Prawns Roast">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Pepper Prawns Roast</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>299</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-012" data-name="Chinese Chilli Fish" data-price="249">
+      <div class="dish-img-wrap">
+        <img src="images/chinese%20chilli%20fish.jfif" alt="Chinese Chilli Fish">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Chinese Chilli Fish</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>249</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-013" data-name="Tawa Fish" data-price="249">
+      <div class="dish-img-wrap">
+        <img src="images/Tawa%20fish.jfif" alt="Tawa Fish">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tawa Fish</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>249</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-014" data-name="Tawa Egg Peratal" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/tawa%20egg%20peratal.jpg" alt="Tawa Egg Peratal">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tawa Egg Peratal</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-015" data-name="Madras Egg Podimas" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/madras%20egg%20podimas.jfif" alt="Madras Egg Podimas">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Madras Egg Podimas</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-016" data-name="Schezwan Eggs" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/schezwan%20eggs.jfif" alt="Schezwan Eggs">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Schezwan Eggs</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-017" data-name="Double Egg Masala Omelette" data-price="49">
+      <div class="dish-img-wrap">
+        <img src="images/double%20egg%20masala%20omelette.jfif" alt="Double Egg Masala Omelette">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Double Egg Masala Omelette</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>49</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- MISSING NON-VEG STARTERS FROM MENU -->
+    <div class="dish-card show" data-cat="starters" data-id="sta-021" data-name="Tawa Pepper Chicken Peratal" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/tawa%20pepper%20chicken%20peratal.jfif" alt="Tawa Pepper Chicken Peratal">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tawa Pepper Chicken Peratal</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-023" data-name="Tandoori Chicken Wings" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/tandoori%20chicken%20wings.jfif" alt="Tandoori Chicken Wings">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tandoori Chicken Wings</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-024" data-name="Honey Chilli Chicken Wings" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80" alt="Honey Chilli Chicken Wings">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Honey Chilli Chicken Wings</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-025" data-name="Chicken Tikka Podimas" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/chicken%20tikka%20podimas.jfif" alt="Chicken Tikka Podimas">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Chicken Tikka Podimas</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-026" data-name="Pichi Potta Kadai Roast" data-price="249">
+      <div class="dish-img-wrap">
+        <img src="images/pichi%20pota%20kaadai%20roast.jpg" alt="Pichi Potta Kadai Roast">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Pichi Potta Kadai Roast</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>249</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-027" data-name="Ghee Mutton Roast" data-price="299">
+      <div class="dish-img-wrap">
+        <img src="images/mutton%20ghee%20roast.jpeg" alt="Ghee Mutton Roast">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Chef's Pick</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Ghee Mutton Roast</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>299</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-028" data-name="D-Mutton Chops" data-price="299">
+      <div class="dish-img-wrap">
+        <img src="images/D-Mutton%20Chops.jfif" alt="D-Mutton Chops">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">D-Mutton Chops</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>299</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-029" data-name="Tandoori Chicken (Quarter)" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Tandoori%20Chicken.jfif" alt="Tandoori Chicken Quarter">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tandoori Chicken (Quarter)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-030" data-name="Tandoori Chicken (Half)" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/Tandoori%20Chicken.jfif" alt="Tandoori Chicken Half">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tandoori Chicken (Half)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="starters" data-id="sta-031" data-name="Tandoori Chicken (Full)" data-price="399">
+      <div class="dish-img-wrap">
+        <img src="images/Tandoori%20Chicken.jfif" alt="Tandoori Chicken Full">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Feast</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Non-Veg Starters</div>
+        <div class="dish-name">Tandoori Chicken (Full)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>399</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSING BIRYANI FROM MENU -->
+    <div class="dish-card show" data-cat="biryani" data-id="bir-007" data-name="Mutton Kuska" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/Mutton%20Kuska.jfif" alt="Mutton Kuska">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Mutton Kuska</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="biryani" data-id="bir-008" data-name="Kadai Thokku Biryani" data-price="249">
+      <div class="dish-img-wrap">
+        <img src="images/Kadai%20thokku%20biriyani.jpeg" alt="Kadai Thokku Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Kadai Thokku Biryani</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>249</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="biryani" data-id="bir-009" data-name="Mutton Biryani" data-price="299">
+      <div class="dish-img-wrap">
+        <img src="images/Mutton%20Biryani.jfif" alt="Mutton Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Signature</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Biryani</div>
+        <div class="dish-name">Mutton Biryani</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>299</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSING RICE FROM MENU -->
+    <div class="dish-card show" data-cat="rice" data-id="rice-010" data-name="Curd Rice" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Curd%20Rice.jfif" alt="Curd Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">Curd Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="rice" data-id="rice-011" data-name="D-Special Fried Biryani Rice" data-price="199">
+      <div class="dish-img-wrap">
+        <img src="images/D%20special%20fried%20biryani%20rice.jfif" alt="D-Special Fried Biryani Rice">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Rice</div>
+        <div class="dish-name">D-Special Fried Biryani Rice</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>199</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSING DOSA FROM MENU -->
+    <div class="dish-card show" data-cat="dosa" data-id="dos-008" data-name="Mutton Thokku Dosa" data-price="189">
+      <div class="dish-img-wrap">
+        <img src="images/Mutton%20thokku%20Dosa.jfif" alt="Mutton Thokku Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Mutton Thokku Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>189</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="dosa" data-id="dos-009" data-name="Prawn Thokku Dosa" data-price="189">
+      <div class="dish-img-wrap">
+        <img src="images/prawn%20thokku%20dosa.jfif" alt="Prawn Thokku Dosa">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Dosa</div>
+        <div class="dish-name">Prawn Thokku Dosa</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>189</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSING BUCKET BIRYANI -->
+    <div class="dish-card show" data-cat="bucket" data-id="bkt-003" data-name="Mutton Biryani Bucket (Serves 6-8)" data-price="1999">
+      <div class="dish-img-wrap">
+        <img src="images/Bucket%20Mutton%20Biryani.jpg" alt="Bucket Mutton Biryani">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Serves 6–8</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Bucket Biryani</div>
+        <div class="dish-name">Mutton Biryani (Serves 6–8)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>1,999</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TANDOORI — MISSING ITEMS -->
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-002" data-name="Chapathi (2)" data-price="49">
+      <div class="dish-img-wrap">
+        <img src="images/Chapathi.jpg" alt="Chapathi">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Chapathi (2)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>49</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-003" data-name="Phulka (2)" data-price="59">
+      <div class="dish-img-wrap">
+        <img src="images/Phulka.jpg" alt="Phulka">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Phulka (2)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>59</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-004" data-name="Kulcha" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Kulcha.jpg" alt="Kulcha">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Kulcha</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-005" data-name="Stuffed Paneer Kulcha" data-price="109">
+      <div class="dish-img-wrap">
+        <img src="images/Stuffed%20Paneer%20Kulcha.jpg" alt="Stuffed Paneer Kulcha">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Stuffed Paneer Kulcha</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>109</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-006" data-name="Cheese Kulcha" data-price="119">
+      <div class="dish-img-wrap">
+        <img src="images/Cheese%20Kulcha.jpg" alt="Cheese Kulcha">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Cheese Kulcha</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>119</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-007" data-name="Roti" data-price="89">
+      <div class="dish-img-wrap">
+        <img src="images/Roti.jpg" alt="Roti">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Roti</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>89</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-008" data-name="Butter Roti" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Buttet%20Roti.jpg" alt="Butter Roti">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Butter Roti</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-009" data-name="Multi-Grain Roti" data-price="109">
+      <div class="dish-img-wrap">
+        <img src="images/Multigrain%20Roti.jpg" alt="Multi-Grain Roti">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Multi-Grain Roti</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>109</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-010" data-name="Naan" data-price="89">
+      <div class="dish-img-wrap">
+        <img src="images/Naan.jpg" alt="Naan">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Naan</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>89</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-011" data-name="Butter Naan" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Butter%20Naan.jpg" alt="Butter Naan">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Butter Naan</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-012" data-name="Garlic Naan" data-price="109">
+      <div class="dish-img-wrap">
+        <img src="images/Garlic%20Naan.jpg" alt="Garlic Naan">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Garlic Naan</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>109</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-013" data-name="Chilli Flakes Naan" data-price="109">
+      <div class="dish-img-wrap">
+        <img src="images/Chilli%20Flakes%20Naan.jpg" alt="Chilli Flakes Naan">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Chilli Flakes Naan</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>109</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-014" data-name="Chicken Shawarma Roll" data-price="79">
+      <div class="dish-img-wrap">
+        <img src="images/Chicken%20Shawarma%20Roll.jpg" alt="Chicken Shawarma Roll">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Chicken Shawarma Roll</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>79</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="tandoori" data-id="tan-015" data-name="Chicken Shawarma Platter" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/Chicken%20Shawarma%20Plater.jpg" alt="Chicken Shawarma Platter">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Tandoori</div>
+        <div class="dish-name">Chicken Shawarma Platter</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRILL — MISSING ITEMS -->
+    <div class="dish-card show" data-cat="grill" data-id="grl-002" data-name="Grill Chicken (Quarter)" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/Grill%20Chicken%20Quarter.jpeg" alt="Grill Chicken Quarter">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Grill</div>
+        <div class="dish-name">Grill Chicken (Quarter)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="grill" data-id="grl-003" data-name="Grill Chicken (Half)" data-price="229">
+      <div class="dish-img-wrap">
+        <img src="images/Grill%20Chicken%20Half.jpeg" alt="Grill Chicken Half">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Grill</div>
+        <div class="dish-name">Grill Chicken (Half)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>229</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="grill" data-id="grl-004" data-name="Grill Chicken (Full)" data-price="429">
+      <div class="dish-img-wrap">
+        <img src="images/Grill%20Chicken%20Full.jpeg" alt="Grill Chicken Full">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Feast</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Grill</div>
+        <div class="dish-name">Grill Chicken (Full)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>429</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW CATEGORY: VEG STARTERS -->
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-001" data-name="Gobi 65" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/Gobi%2065.jfif" alt="Gobi 65">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Gobi 65</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-002" data-name="Gobi Manchurian" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/Gobi%20Manchurian.jfif" alt="Gobi Manchurian">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Gobi Manchurian</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-003" data-name="Yellow Gobi Tikka" data-price="139">
+      <div class="dish-img-wrap">
+        <img src="images/yellow%20gobi%20tikka.jpg" alt="Yellow Gobi Tikka">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Yellow Gobi Tikka</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>139</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-004" data-name="Milagai Paneer Tikka" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/chilli%20paneer%20tikka.jfif" alt="Milagai Paneer Tikka">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Milagai Paneer Tikka</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-005" data-name="Paneer 65" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/Paneer%2065.jfif" alt="Paneer 65">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Paneer 65</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-006" data-name="Chittor Chilli Paneer" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/chittor%20chilli%20paneer.jfif" alt="Chittor Chilli Paneer">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Chittor Chilli Paneer</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-007" data-name="Pepper Mushroom Chukka" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/pepper%20mushroom%20chukka.jfif" alt="Pepper Mushroom Chukka">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Pepper Mushroom Chukka</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-008" data-name="Honey Chilli Lotus Stem" data-price="159">
+      <div class="dish-img-wrap">
+        <img src="images/Honey%20chilli%20lotus%20stem.jpeg" alt="Honey Chilli Lotus Stem">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Honey Chilli Lotus Stem</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>159</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="vegstarters" data-id="vs-009" data-name="Podi Mangai Milagai" data-price="179">
+      <div class="dish-img-wrap">
+        <img src="images/Podi%20mangai%20milagai.jpeg" alt="Podi Mangai Milagai">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Veg Starters</div>
+        <div class="dish-name">Podi Mangai Milagai</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>179</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW CATEGORY: SOUPS -->
+    <div class="dish-card show" data-cat="soups" data-id="sou-001" data-name="Vegetable Chinese Clear Soup" data-price="69">
+      <div class="dish-img-wrap">
+        <img src="images/Chinese%20Clear%20Vegetable%20Soup.jpg" alt="Vegetable Chinese Clear Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Vegetable Chinese Clear Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>69</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-002" data-name="Paneer Chinese Clear Soup" data-price="79">
+      <div class="dish-img-wrap">
+        <img src="images/Chinese%20Clear%20Paneer%20Soup.jpeg" alt="Paneer Chinese Clear Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Paneer Chinese Clear Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>79</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-003" data-name="Chicken Chinese Clear Soup" data-price="89">
+      <div class="dish-img-wrap">
+        <img src="images/Chinese%20Clear%20Chicken%20Soup.jpeg" alt="Chicken Chinese Clear Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Chicken Chinese Clear Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>89</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-004" data-name="Prawn Chinese Clear Soup" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Chinese%20Clear%20Prawn%20Soup.png" alt="Prawn Chinese Clear Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Prawn Chinese Clear Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-005" data-name="Vegetable Hot & Sour Soup" data-price="69">
+      <div class="dish-img-wrap">
+        <img src="images/Hot%20and%20Sour%20Vegetable%20Soup.jpg" alt="Vegetable Hot & Sour Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Vegetable Hot &amp; Sour Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>69</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-006" data-name="Chicken Hot & Sour Soup" data-price="89">
+      <div class="dish-img-wrap">
+        <img src="images/Hot%20and%20Sour%20Chicken%20Soup.jpg" alt="Chicken Hot & Sour Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Chicken Hot &amp; Sour Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>89</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-007" data-name="Vegetable Madras Style Soup" data-price="69">
+      <div class="dish-img-wrap">
+        <img src="images/Madras%20Style%20Veg%20Soup.jpg" alt="Vegetable Madras Style Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Vegetable Madras Style Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>69</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-008" data-name="Chicken Madras Style Soup" data-price="89">
+      <div class="dish-img-wrap">
+        <img src="images/Madras%20Style%20Chicken%20Soup.jpg" alt="Chicken Madras Style Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Chicken Madras Style Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>89</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="soups" data-id="sou-009" data-name="Mutton Soup" data-price="99">
+      <div class="dish-img-wrap">
+        <img src="images/Mutton%20Soup.jpg" alt="Mutton Soup">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Chef's Pick</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Soups</div>
+        <div class="dish-name">Mutton Soup</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW CATEGORY: GRAVY -->
+    <div class="dish-card show" data-cat="gravy" data-id="grv-001" data-name="Mix Vegetable Curry" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/mix%20vegetable%20curry.jfif" alt="Mix Vegetable Curry">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Mix Vegetable Curry</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-002" data-name="Chettinad Paneer" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/chettinad%20panner.jfif" alt="Chettinad Paneer">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Chettinad Paneer</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-003" data-name="Paneer Tikka Masala" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/Paneer%20Tikka%20Masala.jpg" alt="Paneer Tikka Masala">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Paneer Tikka Masala</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-004" data-name="Egg Pepper Masala" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/egg%20pepper%20masala.jfif" alt="Egg Pepper Masala">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Egg Pepper Masala</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-005" data-name="Ammachi Chicken Thokku" data-price="249">
+      <div class="dish-img-wrap">
+        <img src="images/chicken%20thokku.jfif" alt="Ammachi Chicken Thokku">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Ammachi Chicken Thokku</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>249</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-006" data-name="Chicken Tikka Masala" data-price="249">
+      <div class="dish-img-wrap">
+        <img src="images/chicken%20tikka%20masala.jfif" alt="Chicken Tikka Masala">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Chicken Tikka Masala</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>249</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-007" data-name="Special Kadai Thokku" data-price="249">
+      <div class="dish-img-wrap">
+        <img src="images/kaadai%20thokku.jfif" alt="Special Kadai Thokku">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Special Kadai Thokku</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>249</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-008" data-name="Ammachi Mutton Chops" data-price="349">
+      <div class="dish-img-wrap">
+        <img src="images/Mutton%20Chops.jfif" alt="Ammachi Mutton Chops">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">D'Cruze Special</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Ammachi Mutton Chops</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>349</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-009" data-name="Madras Mutton Curry" data-price="349">
+      <div class="dish-img-wrap">
+        <img src="images/mutton%20curry.jfif" alt="Madras Mutton Curry">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Madras Mutton Curry</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>349</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="gravy" data-id="grv-010" data-name="Prawn Thokku" data-price="349">
+      <div class="dish-img-wrap">
+        <img src="images/Prawn%20Thokku.jfif" alt="Prawn Thokku">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Chef's Pick</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Gravy</div>
+        <div class="dish-name">Prawn Thokku</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>349</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW CATEGORY: PAROTTA -->
+    <div class="dish-card show" data-cat="parotta" data-id="par-001" data-name="Malabar Parotta (2)" data-price="49">
+      <div class="dish-img-wrap">
+        <img src="images/parotta.jpeg" alt="Malabar Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Malabar Parotta (2)</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>49</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="parotta" data-id="par-002" data-name="Bun Parotta" data-price="29">
+      <div class="dish-img-wrap">
+        <img src="images/Bun%20Parotta.jfif" alt="Bun Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Bun Parotta</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>29</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="parotta" data-id="par-003" data-name="Poricha Parotta" data-price="29">
+      <div class="dish-img-wrap">
+        <img src="images/poricha%20parotta.jfif" alt="Poricha Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Poricha Parotta</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>29</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="parotta" data-id="par-004" data-name="Veechu Parotta" data-price="39">
+      <div class="dish-img-wrap">
+        <img src="images/veechu%20parotta.jpg" alt="Veechu Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Veechu Parotta</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>39</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="parotta" data-id="par-005" data-name="Egg Kothu Parotta" data-price="129">
+      <div class="dish-img-wrap">
+        <img src="images/egg%20kothu%20parotta.jpg" alt="Egg Kothu Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Egg Kothu Parotta</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>129</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="parotta" data-id="par-006" data-name="Chicken Kothu Parotta" data-price="149">
+      <div class="dish-img-wrap">
+        <img src="images/Chicken%20Kothu%20Parotta.jpeg" alt="Chicken Kothu Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+        <div class="dish-badge">Popular</div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Chicken Kothu Parotta</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="parotta" data-id="par-007" data-name="Mutton Kothu Parotta" data-price="169">
+      <div class="dish-img-wrap">
+        <img src="images/mutton%20kothu%20parotta.jpg" alt="Mutton Kothu Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Mutton Kothu Parotta</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>169</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-card show" data-cat="parotta" data-id="par-008" data-name="Prawn Kothu Parotta" data-price="169">
+      <div class="dish-img-wrap">
+        <img src="images/prawn%20kothu%20parotta.jfif" alt="Prawn Kothu Parotta">
+        <div class="dish-overlay"><div class="dish-view-btn">View Dish</div></div>
+      </div>
+      <div class="dish-info">
+        <div class="dish-cat-tag">Parotta</div>
+        <div class="dish-name">Prawn Kothu Parotta</div>
+        <div class="dish-footer">
+          <div class="dish-price"><small>₹</small>169</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-tag">Contact Us</div>
+    <h2>Find Us & <em>Get in Touch</em></h2>
+    <p>We'd love to have you with us. Make a reservation or drop us a message.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Visit D'Cruz Biryani Restaurant</h3>
+      <p>Experience the finest dining Chennai has to offer. Our doors are open for lunch and dinner, seven days a week. Walk-ins welcome — reservations preferred for weekend evenings.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Address</div>
+            <div class="contact-item-val">No. 1/2 & 1, 3, New Boag Rd,<br>CIT Nagar West, T. Nagar,<br>Chennai, Tamil Nadu 600017</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Phone & WhatsApp</div>
+            <div class="contact-item-val">+91 93846 80017</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92e0f7e1f7e0e4f3e6fbfdfce1d2e1f3f4f4e0fdfcf7fff0f7e0bcfbfc">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="056d6069696a4576646363776a6b60686760772b6c6b">[email&#160;protected]</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-grid">
+        <div class="hours-day">Monday – Friday</div>
+        <div class="hours-time">12:00 PM – 2:00 AM</div>
+        <div class="hours-day">Saturday</div>
+        <div class="hours-time">12:00 PM – 4:00 AM</div>
+        <div class="hours-day">Sunday</div>
+        <div class="hours-time">12:00 PM – 4:00 AM</div>
+      </div>
+
+      <div class="contact-item" style="margin-top: 28px;">
+        <div class="contact-item-icon">🅿️</div>
+        <div>
+          <div class="contact-item-label">Parking</div>
+          <div class="contact-item-val">Free parking lot available<br>Plenty of parking space</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <h3>Reserve a Table</h3>
+      <p>Complete the form below and our team will confirm your reservation within 2 hours.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Arjun">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Sharma">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="arjun@email.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Time</label>
+          <select>
+            <option>12:00 PM</option>
+            <option>1:00 PM</option>
+            <option>7:00 PM</option>
+            <option>7:30 PM</option>
+            <option>8:00 PM</option>
+            <option>8:30 PM</option>
+            <option>9:00 PM</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Number of Guests</label>
+        <select>
+          <option>1 Guest</option>
+          <option>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4 Guests</option>
+          <option>5–8 Guests</option>
+          <option>9+ Guests (Private Dining)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Special Requests</label>
+        <textarea placeholder="Dietary requirements, occasion details, seating preference..."></textarea>
+      </div>
+      <button class="form-submit">Confirm Reservation</button>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="map-wrap reveal" style="margin-top: 80px;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.9942!2d80.2289!3d13.0504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267014a4b5555%3A0xe8c8c8c8c8c8c8c8!2sD&#39;Cruz%20Biryani%20Restaurant!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">D'Cruz <span>Biryani</span></div>
+      <p>Serving Chennai's most authentic biryani and South Indian flavours — crafted daily with fresh ingredients and generations of culinary tradition.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Reservations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cuisine</h4>
+      <ul>
+        <li><a href="#">Biryani</a></li>
+        <li><a href="#">Rice & Dosa</a></li>
+        <li><a href="#">Non-Veg Starters</a></li>
+        <li><a href="#">Tandoori & Grill</a></li>
+        <li><a href="#">Duck Specialties</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Zomato</a></li>
+        <li><a href="#">Swiggy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 D'Cruz Biryani Restaurant. All rights reserved. &nbsp;·&nbsp; Made with ❤️ in Chennai.</p>
+    <div class="social-links">
+      <a href="#">📷</a>
+      <a href="#">📘</a>
+      <a href="#">🐦</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart FAB Button -->
+<button class="cart-fab" id="cartFab" onclick="toggleCart()" title="View Cart">
+  🛒
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<!-- Cart Overlay -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your <span>Cart</span></h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItemsList">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">🛒</div>
+      <div>Your cart is empty</div>
+      <div style="font-size:0.65rem;opacity:0.6;">Add dishes from the menu to get started</div>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Total</span>
+      <span class="cart-subtotal-val" id="cartTotal">₹0</span>
+    </div>
+    <div class="cart-note">Prices are inclusive of taxes. Order will be confirmed by our team after checkout.</div>
+    <!--
+      BACKEND INTEGRATION NOTE:
+      On checkout, send cart data to your API endpoint:
+      POST /api/orders
+      Body: { items: cartItems, total: cartTotal, customer: { name, phone, address } }
+      Each item has: { id, name, category, price, qty }
+    -->
+    <button class="cart-checkout-btn" onclick="handleCheckout()">Proceed to Checkout</button>
+    <button class="cart-clear-btn" onclick="clearCart()">Clear Cart</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// Premium category scroll indicator — mobile only
+(function() {
+  const rail  = document.getElementById('catFilters');
+  const thumb = document.getElementById('catScrollThumb');
+  if (!rail || !thumb) return;
+
+  function updateThumb() {
+    const scrollable = rail.scrollWidth - rail.clientWidth;
+    if (scrollable <= 0) { thumb.style.width = '100%'; return; }
+    const thumbW = Math.max((rail.clientWidth / rail.scrollWidth) * 100, 15);
+    const thumbX = (rail.scrollLeft / scrollable) * (100 - thumbW);
+    thumb.style.width  = thumbW + '%';
+    thumb.style.left   = thumbX + '%';
+  }
+
+  // Drag scrollbar thumb
+  let dragging = false, startX = 0, startScroll = 0;
+  thumb.addEventListener('pointerdown', function(e) {
+    dragging = true;
+    startX = e.clientX;
+    startScroll = rail.scrollLeft;
+    thumb.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  thumb.addEventListener('pointermove', function(e) {
+    if (!dragging) return;
+    const track = thumb.parentElement;
+    const ratio = (e.clientX - startX) / track.clientWidth;
+    rail.scrollLeft = startScroll + ratio * (rail.scrollWidth - rail.clientWidth);
+  });
+  thumb.addEventListener('pointerup', () => dragging = false);
+
+  rail.addEventListener('scroll', updateThumb);
+  window.addEventListener('resize', updateThumb);
+  updateThumb();
+})();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
