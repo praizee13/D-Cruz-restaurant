@@ -8,106 +8,136 @@
   <link rel="stylesheet" href="css/style.css">
 <style>
   /* ── String Lights: Mobile Only ── */
-  .string-lights-mobile {
-    display: none;
-  }
-  @media (max-width: 768px) {
-    .string-lights-mobile { display: block; }
-  }
-  /* JS handles all glow — no CSS animation needed here */
+  .string-lights-mobile { display: none; }
+  @media (max-width: 768px) { .string-lights-mobile { display: block; } }
 
-  /* ── FIX: Menu section must NOT slide/fade — only the dish grid below categories animates ── */
+  /* ══════════════════════════════════════════════
+     CORE FIX — Menu is a flex column, 100vh tall.
+     .menu-static  = pinned (title, search, cats)
+     .menu-scroll-area = only this scrolls (dishes)
+  ══════════════════════════════════════════════ */
   #menu {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative !important;
   }
-  #menu.visible {
-    opacity: 1 !important;
-    transform: none !important;
+  #menu.visible { opacity: 1 !important; transform: none !important; }
+
+  /* OLD .menu-inner must not interfere — neutralise it */
+  .menu-inner {
+    display: contents !important;
   }
 
-  /* ── Mobile background for menu section ── */
+  /* Pinned top block */
+  .menu-static {
+    flex-shrink: 0 !important;
+    padding: 80px 60px 20px !important;
+    z-index: 2 !important;
+    position: relative !important;
+  }
+
+  /* Scrollable dish grid area */
+  .menu-scroll-area {
+    flex: 1 1 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0 60px 60px !important;
+    z-index: 2 !important;
+    position: relative !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(201,168,76,0.5) transparent !important;
+  }
+  .menu-scroll-area::-webkit-scrollbar { width: 4px; }
+  .menu-scroll-area::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.5); border-radius: 2px; }
+  .menu-scroll-area::-webkit-scrollbar-track { background: transparent; }
+
+  /* ── Mobile tweaks ── */
   @media (max-width: 768px) {
     #menu {
       background-image:
-        linear-gradient(rgba(13,11,7,0.68), rgba(13,11,7,0.68)),
+        linear-gradient(rgba(13,11,7,0.65), rgba(13,11,7,0.65)),
         url('images/mblone.png') !important;
       background-attachment: scroll !important;
       background-size: cover !important;
-      background-position: center !important;
+      background-position: center top !important;
       background-repeat: no-repeat !important;
     }
+    .menu-static  { padding: 56px 14px 14px !important; }
+    .menu-scroll-area { padding: 0 14px 40px !important; }
   }
 
-  /* ── FIX 1: Section header text — boost visibility against the bg image ── */
+  /* ── Section header text visibility ── */
   #menu .section-tag {
-    color: var(--gold) !important;
+    color: #C9A84C !important;
     font-weight: 600 !important;
-    letter-spacing: 0.4em !important;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.8) !important;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.9) !important;
   }
   #menu .section-header h2 {
     color: #fff !important;
     font-weight: 600 !important;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.7) !important;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.95) !important;
   }
   #menu .section-header h2 em {
-    color: var(--gold) !important;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 0 32px rgba(201,168,76,0.4) !important;
+    color: #C9A84C !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.9) !important;
   }
   #menu .section-header p {
     color: #e8dfc8 !important;
     font-weight: 400 !important;
-    text-shadow: 0 1px 10px rgba(0,0,0,0.95), 0 2px 20px rgba(0,0,0,0.8) !important;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.95) !important;
   }
+  #menu .section-header { margin-bottom: 24px !important; }
 
-  /* ── FIX 2: Category buttons — gold/dark theme ── */
+  /* ── Category buttons — gold/dark theme ── */
   .cat-btn {
-    background: rgba(13,11,7,0.75) !important;
-    border: 1px solid rgba(201,168,76,0.35) !important;
-    backdrop-filter: blur(6px) !important;
+    background: rgba(13,11,7,0.80) !important;
+    border: 1px solid rgba(201,168,76,0.40) !important;
+    backdrop-filter: blur(8px) !important;
   }
-  .cat-btn:hover {
-    background: rgba(201,168,76,0.12) !important;
-    border-color: var(--gold) !important;
-  }
+  .cat-btn:hover { background: rgba(201,168,76,0.14) !important; border-color: #C9A84C !important; }
   .cat-btn.active {
-    background: rgba(201,168,76,0.18) !important;
-    border-color: var(--gold) !important;
-    box-shadow: 0 0 0 1px rgba(201,168,76,0.3), 0 4px 20px rgba(201,168,76,0.15) !important;
+    background: rgba(201,168,76,0.20) !important;
+    border-color: #C9A84C !important;
+    box-shadow: 0 0 0 1px rgba(201,168,76,0.35), 0 4px 20px rgba(201,168,76,0.18) !important;
   }
-  .cat-btn::before {
-    background: rgba(201,168,76,0.10) !important;
-  }
-  .cat-img {
-    border: 1.5px solid rgba(201,168,76,0.4) !important;
-  }
+  .cat-label { color: rgba(200,184,154,0.9) !important; }
+  .cat-btn.active .cat-label, .cat-btn:hover .cat-label { color: #C9A84C !important; }
+  .cat-img { border: 1.5px solid rgba(201,168,76,0.4) !important; }
   .cat-btn.active .cat-img, .cat-btn:hover .cat-img {
-    border-color: var(--gold) !important;
+    border-color: #C9A84C !important;
     box-shadow: 0 0 0 2px rgba(201,168,76,0.25) !important;
   }
-  .cat-label {
-    color: rgba(200,184,154,0.85) !important;
-  }
-  .cat-btn.active .cat-label, .cat-btn:hover .cat-label {
-    color: var(--gold) !important;
+  .cat-filters { margin-bottom: 16px !important; }
+
+  /* ── 2-column dish grid on mobile ── */
+  @media (max-width: 768px) {
+    .menu-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+    }
+    .dish-img-wrap  { height: 120px !important; }
+    .dish-info      { padding: 8px 10px 10px !important; }
+    .dish-name      { font-size: 0.85rem !important; line-height: 1.2 !important; }
+    .dish-price     { font-size: 1rem !important; }
+    .dish-cat-tag   { font-size: 0.48rem !important; margin-bottom: 3px !important; }
+    .add-btn        { width: 28px !important; height: 28px !important; font-size: 0.9rem !important; }
   }
 
-  /* ── FIX 3: Dish cards slide-in on page load ── */
+  /* ── Dish cards slide-in animation ── */
   @keyframes cardSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px) scale(0.97);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(26px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
   .dish-card.show {
     display: block !important;
-    animation: cardSlideIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+    animation: cardSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
   }
   .dish-card.exiting {
     animation: none !important;
@@ -320,6 +350,9 @@
 <!-- Menu -->
 <section id="menu">
 <div class="menu-inner">
+
+  <!-- ░░ PINNED TOP — title, search, categories never scroll ░░ -->
+  <div class="menu-static">
   <div class="section-header">
     <div class="section-tag">The Menu</div>
     <h2>Order Your <em>Favourite</em></h2>
@@ -403,7 +436,10 @@
       <div class="cat-scrollbar-thumb" id="catScrollThumb"></div>
     </div>
   </div>
+  </div><!-- /.menu-static -->
 
+  <!-- ░░ SCROLL AREA — only dishes scroll ░░ -->
+  <div class="menu-scroll-area">
   <!-- Menu Grid -->
   <div class="menu-grid" id="menuGrid">
 
@@ -2141,7 +2177,8 @@
       </div>
     </div>
 
-  </div>
+  </div><!-- /.menu-grid -->
+  </div><!-- /.menu-scroll-area -->
 </div><!-- /.menu-inner -->
 </section>
 
