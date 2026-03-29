@@ -6,9 +6,229 @@
 <title>D'Cruz Biryani Restaurant</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── String Lights: Mobile Only ── */
+  .string-lights-mobile {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .string-lights-mobile { display: block; }
+  }
+  /* JS handles all glow — no CSS animation needed here */
+
+  /* ── FIX: Menu section must NOT slide/fade — only the dish grid below categories animates ── */
+  #menu {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  #menu.visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ── Mobile background for menu section ── */
+  @media (max-width: 768px) {
+    #menu {
+      background-image:
+        linear-gradient(rgba(13,11,7,0.68), rgba(13,11,7,0.68)),
+        url('images/mblone.png') !important;
+      background-attachment: scroll !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+
+  /* ── FIX 1: Section header text — boost visibility against the bg image ── */
+  #menu .section-tag {
+    color: var(--gold) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4em !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.8) !important;
+  }
+  #menu .section-header h2 {
+    color: #fff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 4px 32px rgba(0,0,0,0.7) !important;
+  }
+  #menu .section-header h2 em {
+    color: var(--gold) !important;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 0 32px rgba(201,168,76,0.4) !important;
+  }
+  #menu .section-header p {
+    color: #e8dfc8 !important;
+    font-weight: 400 !important;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.95), 0 2px 20px rgba(0,0,0,0.8) !important;
+  }
+
+  /* ── FIX 2: Category buttons — gold/dark theme ── */
+  .cat-btn {
+    background: rgba(13,11,7,0.75) !important;
+    border: 1px solid rgba(201,168,76,0.35) !important;
+    backdrop-filter: blur(6px) !important;
+  }
+  .cat-btn:hover {
+    background: rgba(201,168,76,0.12) !important;
+    border-color: var(--gold) !important;
+  }
+  .cat-btn.active {
+    background: rgba(201,168,76,0.18) !important;
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 1px rgba(201,168,76,0.3), 0 4px 20px rgba(201,168,76,0.15) !important;
+  }
+  .cat-btn::before {
+    background: rgba(201,168,76,0.10) !important;
+  }
+  .cat-img {
+    border: 1.5px solid rgba(201,168,76,0.4) !important;
+  }
+  .cat-btn.active .cat-img, .cat-btn:hover .cat-img {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 2px rgba(201,168,76,0.25) !important;
+  }
+  .cat-label {
+    color: rgba(200,184,154,0.85) !important;
+  }
+  .cat-btn.active .cat-label, .cat-btn:hover .cat-label {
+    color: var(--gold) !important;
+  }
+
+  /* ── FIX 3: Dish cards slide-in on page load ── */
+  @keyframes cardSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .dish-card.show {
+    display: block !important;
+    animation: cardSlideIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+  }
+  .dish-card.exiting {
+    animation: none !important;
+    opacity: 0 !important;
+    transform: translateY(10px) scale(0.97) !important;
+  }
+</style>
 </head>
-  
 <body>
+<div class="string-lights-mobile" style="position:absolute;top:0;left:0;width:100%;pointer-events:none;z-index:5;overflow:hidden;">
+  <svg id="stringLightsSVG" viewBox="0 0 400 160" preserveAspectRatio="none"
+       style="width:100%;height:auto;">
+
+    <!-- 5 catenary wires anchored edge-to-edge, each drooping at different depths -->
+    <path d="M0,6  C70,42  180,30  400,12" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.7"/>
+    <path d="M0,22 C80,65  190,50  400,30" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.7"/>
+    <path d="M0,42 C90,88  210,72  400,52" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="0.7"/>
+    <path d="M0,62 C100,108 230,90  400,72" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+    <path d="M0,82 C110,126 250,110 400,92" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+
+    <!-- Wire 1 bulbs (6) -->
+    <circle class="sl-bulb" cx="28"  cy="22"  r="2.8" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="90"  cy="34"  r="3.0" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="160" cy="30"  r="2.6" fill="#FFE080"/>
+    <circle class="sl-bulb" cx="235" cy="24"  r="3.0" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="315" cy="18"  r="2.8" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="380" cy="14"  r="2.5" fill="#FFE080"/>
+
+    <!-- Wire 2 bulbs (6) -->
+    <circle class="sl-bulb" cx="42"  cy="46"  r="2.6" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="110" cy="58"  r="3.2" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="185" cy="56"  r="2.8" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="260" cy="50"  r="3.0" fill="#FFE080"/>
+    <circle class="sl-bulb" cx="340" cy="42"  r="2.6" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="392" cy="34"  r="2.4" fill="#FFD060"/>
+
+    <!-- Wire 3 bulbs (6) -->
+    <circle class="sl-bulb" cx="55"  cy="68"  r="3.0" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="128" cy="80"  r="2.6" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="205" cy="78"  r="3.2" fill="#FFE080"/>
+    <circle class="sl-bulb" cx="278" cy="70"  r="2.8" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="352" cy="62"  r="2.6" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="396" cy="56"  r="2.4" fill="#FFE080"/>
+
+    <!-- Wire 4 bulbs (5) -->
+    <circle class="sl-bulb" cx="68"  cy="90"  r="2.6" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="148" cy="102" r="3.0" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="228" cy="100" r="2.8" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="308" cy="92"  r="2.6" fill="#FFE080"/>
+    <circle class="sl-bulb" cx="385" cy="80"  r="2.4" fill="#FFC840"/>
+
+    <!-- Wire 5 bulbs (5) -->
+    <circle class="sl-bulb" cx="82"  cy="112" r="2.8" fill="#FFE080"/>
+    <circle class="sl-bulb" cx="168" cy="122" r="2.6" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="250" cy="120" r="3.0" fill="#FFC840"/>
+    <circle class="sl-bulb" cx="330" cy="112" r="2.6" fill="#FFD060"/>
+    <circle class="sl-bulb" cx="394" cy="102" r="2.4" fill="#FFE080"/>
+
+  </svg>
+</div>
+
+<script>
+// ── Random string light glow engine ──
+(function() {
+  function initStringLights() {
+    const svg = document.getElementById('stringLightsSVG');
+    if (!svg) return;
+    const bulbs = Array.from(svg.querySelectorAll('.sl-bulb'));
+    if (!bulbs.length) return;
+
+    // Each bulb gets an independent random glow cycle
+    bulbs.forEach(function(bulb) {
+      scheduleTwinkle(bulb);
+    });
+  }
+
+  function scheduleTwinkle(bulb) {
+    // Random pause before next glow: 400ms – 4500ms
+    var pause = 400 + Math.random() * 4100;
+    setTimeout(function() {
+      doGlow(bulb);
+    }, pause);
+  }
+
+  function doGlow(bulb) {
+    // Fade in to full brightness
+    var dur = 300 + Math.random() * 500; // glow-up duration
+    var holdTime = 200 + Math.random() * 600; // stay bright briefly
+    var fadeTime = 400 + Math.random() * 700; // fade out
+
+    bulb.style.transition = 'opacity ' + dur + 'ms ease-in, filter ' + dur + 'ms ease-in';
+    bulb.style.opacity = '1';
+    bulb.style.filter = 'drop-shadow(0 0 6px rgba(255,200,60,1)) drop-shadow(0 0 12px rgba(255,180,30,0.7))';
+
+    setTimeout(function() {
+      // Hold, then fade out
+      bulb.style.transition = 'opacity ' + fadeTime + 'ms ease-out, filter ' + fadeTime + 'ms ease-out';
+      bulb.style.opacity = (0.1 + Math.random() * 0.25).toFixed(2); // dim resting state
+      bulb.style.filter = 'drop-shadow(0 0 2px rgba(255,200,60,0.3))';
+
+      setTimeout(function() {
+        // Schedule next random glow
+        scheduleTwinkle(bulb);
+      }, fadeTime);
+    }, dur + holdTime);
+  }
+
+  // Set all bulbs to dim start state
+  document.addEventListener('DOMContentLoaded', function() {
+    var svg = document.getElementById('stringLightsSVG');
+    if (!svg) return;
+    svg.querySelectorAll('.sl-bulb').forEach(function(b) {
+      b.style.opacity = (0.1 + Math.random() * 0.2).toFixed(2);
+      b.style.filter = 'drop-shadow(0 0 2px rgba(255,200,60,0.3))';
+      b.style.transition = 'opacity 0.4s, filter 0.4s';
+    });
+    // Stagger init slightly so they don't all start at the same time
+    setTimeout(initStringLights, 100);
+  });
+})();
+</script>
 <!-- Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -32,6 +252,7 @@
 
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
   <a href="#home" class="mob-link">Home</a>
   <div class="mobile-menu-divider"></div>
   <a href="#menu" class="mob-link">Menu</a>
@@ -64,23 +285,18 @@
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
-</section>
 
-<!-- About Strip -->
-<div class="about-strip reveal">
-  <div class="about-stat">
-    <div class="about-stat-num">🍛</div>
-    <div class="about-stat-label">Dine-In & Takeaway</div>
+  <!-- Bottom-left botanical corner decoration -->
+  <!-- Rangoli Left -->
+  <div class="rangoli-corner rangoli-left" aria-hidden="true">
+    <img src="images/rangolione.png" alt="" class="rangoli-img">
   </div>
-  <div class="about-center">
-    <h2>A Legacy of<br><em>Spice & Soul</em></h2>
-    <p>At D'Cruz Biryani Restaurant, every plate is a celebration of authentic South Indian flavours — crafted with hand-picked spices, fresh ingredients, and a family recipe passed down through generations. From our legendary Prawn Thokku Biryani to the smoky Tandoori Chicken, every bite tells a story.</p>
+  <!-- Rangoli Right -->
+  <div class="rangoli-corner rangoli-right" aria-hidden="true">
+    <img src="images/rangolione.png" alt="" class="rangoli-img rangoli-img-reverse">
   </div>
-  <div class="about-stat">
-    <div class="about-stat-num">🕛</div>
-    <div class="about-stat-label">Open till 2AM / 4AM Weekends</div>
+</section>
   </div>
-</div>
 
 <!-- Features -->
 <div class="features">
@@ -103,10 +319,31 @@
 
 <!-- Menu -->
 <section id="menu">
+<div class="menu-inner">
   <div class="section-header">
     <div class="section-tag">The Menu</div>
     <h2>Order Your <em>Favourite</em></h2>
     <p>From aromatic biryanis to sizzling tandoor specialties — explore our full menu and add to cart.</p>
+  </div>
+
+  <!-- Premium Menu Search Bar -->
+  <div class="menu-search-wrap">
+    <div class="menu-search-box">
+      <svg class="menu-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="7"/>
+        <path d="M16.5 16.5L21 21" stroke-linecap="round"/>
+      </svg>
+      <input
+        type="text"
+        id="menuSearchInput"
+        class="menu-search-input"
+        placeholder="Search your favourite dish…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="menu-search-clear" id="menuSearchClear" aria-label="Clear search">✕</button>
+    </div>
+    <div class="menu-search-hint" id="menuSearchHint"></div>
   </div>
 
   <!-- Category Filters -->
@@ -1905,6 +2142,7 @@
     </div>
 
   </div>
+</div><!-- /.menu-inner -->
 </section>
 
 <!-- Contact -->
@@ -1932,14 +2170,21 @@
           <div class="contact-item-icon">📞</div>
           <div>
             <div class="contact-item-label">Phone & WhatsApp</div>
-            <div class="contact-item-val">+91 93846 80017</div>
+            <div class="contact-item-val">+91 97900 99534</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">👤</div>
+          <div>
+            <div class="contact-item-label">Manager</div>
+            <div class="contact-item-val">Sathish &nbsp;·&nbsp; +91 97900 99534</div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">✉️</div>
           <div>
             <div class="contact-item-label">Email</div>
-            <div class="contact-item-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92e0f7e1f7e0e4f3e6fbfdfce1d2e1f3f4f4e0fdfcf7fff0f7e0bcfbfc">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="056d6069696a4576646363776a6b60686760772b6c6b">[email&#160;protected]</a></div>
+            <div class="contact-item-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cca8afbeb9b6afa4a9a2a2ada5a1abbe8caba1ada5a0e2afa3a1">[email&#160;protected]</a></div>
           </div>
         </div>
       </div>
@@ -1967,21 +2212,21 @@
       <div class="form-row">
         <div class="form-group">
           <label>First Name</label>
-          <input type="text" placeholder="Arjun">
+          <input type="text" placeholder="">
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" placeholder="Sharma">
+          <input type="text" placeholder="">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Phone</label>
-          <input type="tel" placeholder="+91 98765 43210">
+          <input type="tel" placeholder="">
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="arjun@email.com">
+          <input type="email" placeholder="">
         </div>
       </div>
       <div class="form-row">
@@ -1991,15 +2236,7 @@
         </div>
         <div class="form-group">
           <label>Time</label>
-          <select>
-            <option>12:00 PM</option>
-            <option>1:00 PM</option>
-            <option>7:00 PM</option>
-            <option>7:30 PM</option>
-            <option>8:00 PM</option>
-            <option>8:30 PM</option>
-            <option>9:00 PM</option>
-          </select>
+          <input type="time" id="reservationTime" min="12:00" max="03:59" step="900" style="color-scheme:dark;">
         </div>
       </div>
       <div class="form-group">
@@ -2049,11 +2286,10 @@
     <div class="footer-col">
       <h4>Cuisine</h4>
       <ul>
-        <li><a href="#">Biryani</a></li>
-        <li><a href="#">Rice & Dosa</a></li>
-        <li><a href="#">Non-Veg Starters</a></li>
-        <li><a href="#">Tandoori & Grill</a></li>
-        <li><a href="#">Duck Specialties</a></li>
+        <li><a href="#menu" onclick="filterMenuCat('biryani')">Biryani</a></li>
+        <li><a href="#menu" onclick="filterMenuCat('dosa')">Rice & Dosa</a></li>
+        <li><a href="#menu" onclick="filterMenuCat('starters')">Non-Veg Starters</a></li>
+        <li><a href="#menu" onclick="filterMenuCat('tandoori')">Tandoori & Grill</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2119,6 +2355,67 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Premium Menu Search ──
+(function() {
+  const input   = document.getElementById('menuSearchInput');
+  const clearBtn = document.getElementById('menuSearchClear');
+  const hint    = document.getElementById('menuSearchHint');
+  const grid    = document.getElementById('menuGrid');
+  if (!input || !grid) return;
+
+  function getCards() {
+    return Array.from(grid.querySelectorAll('.dish-card'));
+  }
+
+  function applySearch(query) {
+    const q = query.trim().toLowerCase();
+    clearBtn.classList.toggle('visible', q.length > 0);
+
+    const cards = getCards();
+    if (!q) {
+      // Restore category filter state
+      const activeCat = document.querySelector('.cat-btn.active');
+      const cat = activeCat ? activeCat.dataset.cat : 'all';
+      cards.forEach(function(c) {
+        const show = cat === 'all' || c.dataset.cat === cat;
+        c.classList.toggle('show', show);
+        c.style.display = '';
+      });
+      hint.textContent = '';
+      return;
+    }
+
+    // Search across name and category
+    let count = 0;
+    cards.forEach(function(c) {
+      const name = (c.dataset.name || '').toLowerCase();
+      const cat  = (c.dataset.cat  || '').toLowerCase();
+      const match = name.includes(q) || cat.includes(q);
+      c.classList.toggle('show', match);
+      c.style.display = match ? '' : 'none';
+      if (match) count++;
+    });
+
+    if (count === 0) {
+      hint.textContent = 'No dishes found for "' + query.trim() + '"';
+    } else {
+      hint.textContent = count + ' dish' + (count === 1 ? '' : 'es') + ' found';
+    }
+  }
+
+  input.addEventListener('input', function() {
+    applySearch(this.value);
+  });
+
+  clearBtn.addEventListener('click', function() {
+    input.value = '';
+    applySearch('');
+    input.focus();
+  });
+})();
+</script>
+
 <script>
 // Premium category scroll indicator — mobile only
 (function() {
@@ -2158,6 +2455,19 @@
 })();
 </script>
 <script src="js/main.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+
+<script>
+// ── Footer cuisine link → menu category filter ──
+function filterMenuCat(cat) {
+  setTimeout(function() {
+    var btn = document.querySelector('.cat-btn[data-cat="' + cat + '"]');
+    if (btn) btn.click();
+  }, 400);
+}
+
+// ── Mobile menu close button ──
+(function() {
+  var closeBtn = document.getElementById('mobileMenuClose');
+  var hamburger = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  if (!close
